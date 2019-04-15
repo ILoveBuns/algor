@@ -29,7 +29,6 @@ public class Algor_3 {
         }
         return out;
     }
-
 }
 
 class ListNode {
