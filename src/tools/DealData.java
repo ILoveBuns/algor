@@ -6,6 +6,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 处理获取库表
+ */
 public class DealData {
     static Map<String, Set<String>> map = new HashMap();
 
