@@ -23,11 +23,9 @@ public class DealData {
             line=line.replace(" ","");
 
             addMap(toArrs(line));
-
         }
 //        printMap();
         toTxt();
-
     }
 
     //获取数组
@@ -46,9 +44,7 @@ public class DealData {
                     map.put(dbAndTab[0],new HashSet<>());
                     map.get(dbAndTab[0]).add(dbAndTab[j]);
                 }
-
             }
-
         }
     }
 
@@ -73,7 +69,5 @@ public class DealData {
             }
         }
         writer.flush();
-
     }
-
 }
