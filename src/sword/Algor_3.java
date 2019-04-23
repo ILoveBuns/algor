@@ -13,10 +13,10 @@ public class Algor_3 {
             tep.next = new ListNode((int)(Math.random()*100));
             tep = tep.next;
         }
-        printListFromTailToHead(listNode);
+        System.out.println(printListFromTailToHead(listNode));
     }
 
-    public static  ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+    private static  ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<Integer> out = new ArrayList<>();
         while(listNode != null){

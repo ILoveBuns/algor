@@ -26,11 +26,11 @@ public class Algor_4 {
         TreeNode root = new TreeNode(pre[0]);
 
         ArrayList<Integer> newLeftIn = new ArrayList<>();
-        for (int inx = 0; inx < in.length; inx++) {
-            if(in[inx] == root.val){
+        for (int v:in) {
+            if(v == root.val){
                 break;
             }
-            newLeftIn.add(in[inx]);
+            newLeftIn.add(v);
         }
         ArrayList<Integer> newLeftPre = new ArrayList<>();
         for (int inx = 0; inx < newLeftIn.size(); inx++) {
