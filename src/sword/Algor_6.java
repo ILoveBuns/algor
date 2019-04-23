@@ -29,21 +29,21 @@ public class Algor_6 {
         System.out.println(minNumberInRotateArray(arr));
     }
     public static int minNumberInRotateArray(int [] array) {
-        int mid = array.length/2;
-        while(mid<array.length && mid>0){
-            if (array[mid]<=array[mid-1]){
+        int left = 0;
+        int right = array.length-1;
+        int mid = (left + right)/2;
+        while(mid<array.length && mid>=0){
+            if (array[mid]<array[mid-1]){
                 return array[mid];
             }
-            //说明在前一段增区间上
             if (array[mid]>array[0]){
-                mid = (mid+array.length)/2;
-                continue;
+                //说明在前一段增区间上
+                left = mid;
+            }else{
+                //说明在后一段增区间上
+                right = mid;
             }
-            //说明在后一段增区间上
-            if (array[mid]<array[0]){
-                mid = (mid+0)/2;
-                continue;
-            }
+            mid = (left + right)/2;
         }
         return 0;
     }
