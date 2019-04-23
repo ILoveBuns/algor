@@ -9,7 +9,7 @@ public class Algor_3 {
     public static void main(String[] args) {
         ListNode listNode =new ListNode(10);
         ListNode tep = listNode;
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < 10; i++) {
             tep.next = new ListNode((int)(Math.random()*100));
             tep = tep.next;
         }

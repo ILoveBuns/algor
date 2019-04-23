@@ -28,7 +28,7 @@ public class Algor_6 {
         System.out.println(Arrays.toString(arr));
         System.out.println(minNumberInRotateArray(arr));
     }
-    public static int minNumberInRotateArray(int [] array) {
+    private static int minNumberInRotateArray(int [] array) {
         int left = 0;
         int right = array.length-1;
         int mid = (left + right)/2;

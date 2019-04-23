@@ -12,17 +12,17 @@ import java.util.Stack;
 //2、pop,将stack1中的数据弹出压入到stack2中，则数据顺序相反，为保证最先进入的数据一直处于栈顶，
 //只有将stack2中的数据全部pop后，才能继续讲stack1中的数据压入到stack2中，继续做pop
 public class Algor_5 {
-    static Stack<Integer> stack1 = new Stack<Integer>();
-    static Stack<Integer> stack2 = new Stack<Integer>();
+    private static Stack<Integer> stack1 = new Stack<>();
+    private static Stack<Integer> stack2 = new Stack<>();
 
     public static void main(String[] args) {
-        Algor_5.push(1);
-        Algor_5.push(2);
-        System.out.println(Algor_5.pop());
-        Algor_5.push(3);
+        push(1);
+        push(2);
+        System.out.println(pop());
+        push(3);
 
-        System.out.println(Algor_5.pop());
-        System.out.println(Algor_5.pop());
+        System.out.println(pop());
+        System.out.println(pop());
     }
 
     private static void push(int node) {

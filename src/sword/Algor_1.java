@@ -31,7 +31,6 @@ public class Algor_1 {
                 array[row][col] = Max(moreThanrow,moreThancol);
             }
         }
-
         System.out.println(Find(target,array));
     }
 

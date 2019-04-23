@@ -15,6 +15,7 @@ public class Algor_4 {
         int[] pre = new int[]{1,2,4,7,3,5,6,8};
         int[] in = new int[]{4,7,2,1,5,3,8,6};
         TreeNode node = reConstructBinaryTree(pre,in);
+        System.out.println(node);
     }
     //递归思想，每次结点一定是pre的首节点
     //分为左右两个子树分别递归
