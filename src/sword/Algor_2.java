@@ -5,18 +5,15 @@ package sword;
  * 例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
  */
 public class Algor_2 {
-    static String ori ="";
-
     public static void main(String[] args) {
-        ori = "we Are Happy";
+        String ori = "we Are Happy";
 
         String s = replaceSpace(new StringBuffer(ori));
         System.out.println(s);
     }
 
-    public static String replaceSpace(StringBuffer str) {
+    private static String replaceSpace(StringBuffer str) {
         String s = str.toString();
-        String out = s.replace(" ","%20");
-        return  out;
+        return s.replace(" ","%20");
     }
 }

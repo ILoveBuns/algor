@@ -31,14 +31,13 @@ public class Algor_1 {
                 array[row][col] = Max(moreThanrow,moreThancol);
             }
         }
-
         System.out.println(Find(target,array));
     }
 
     private static boolean Find(int target, int [][] array) {
-        for (int row = 0; row < array.length; row++) {
-            for (int col = 0; col < array[row].length; col++) {
-                if(array[row][col]==target){
+        for (int[] arrRow:array) {
+            for (int v:arrRow  ) {
+                if (v == target){
                     return true;
                 }
             }
