@@ -29,13 +29,13 @@ public class Algor_3 {
         }
         return out;
     }
-}
 
-class ListNode {
-    int val;
-    ListNode next = null;
+    static class ListNode {
+        int val;
+        ListNode next = null;
 
-    ListNode(int val) {
-        this.val = val;
+        ListNode(int val) {
+            this.val = val;
+        }
     }
 }
