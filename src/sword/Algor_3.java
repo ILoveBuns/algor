@@ -30,7 +30,7 @@ public class Algor_3 {
         return out;
     }
 
-    static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next = null;
 
