@@ -5,9 +5,9 @@ package sword;
  */
 public class Algor_12 {
     public static void main(String[] args) {
-
+        System.out.println(Power(2.3,8));
     }
-    private double Power(double base, int exponent) {
-
+    private static double Power(double base, int exponent) {
+        return Math.pow(base,exponent);
     }
 }
