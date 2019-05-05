@@ -5,7 +5,8 @@ package sword;
  */
 public class Algor_15 {
     public static void main(String[] args) {
-        ReverseList(init());
+        ListNode node = init();
+        System.out.println(ReverseList(node));
     }
     private static ListNode ReverseList(ListNode head) {
         if (head == null) {
@@ -29,5 +30,12 @@ public class Algor_15 {
         ListNode(int val) {
             this.val = val;
         }
+    }
+
+    private static ListNode init(){
+        ListNode node = new ListNode(2);
+        node.next = new ListNode(4);
+        node.next.next = new ListNode(6);
+        return node;
     }
 }
