@@ -25,7 +25,7 @@ public class Algor_20 {
     private static int min = Integer.MAX_VALUE;
 
     //每次push进去的时候，辅助栈push一下当前的最小值
-    public static void push(int node) {
+    private static void push(int node) {
         if(node < min){
             min = node;
         }
@@ -34,16 +34,16 @@ public class Algor_20 {
     }
 
     //pop的时候，辅助栈随着一起pop
-    public static void pop() {
+    private static void pop() {
         minStack.pop();
         stack.pop();
     }
 
-    public static int top() {
+    private static int top() {
         return stack.peek();
     }
 
-    public static int min() {
+    private static int min() {
         return minStack.peek();
     }
 }
