@@ -10,6 +10,7 @@ public class Algor_17 {
 
     private static boolean HasSubtree(TreeNode root1,TreeNode root2) {
 
+        return false;
     }
 
     private static class TreeNode {
