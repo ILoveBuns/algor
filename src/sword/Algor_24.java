@@ -13,8 +13,9 @@ public class Algor_24 {
 
     }
 
-    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
+    private static ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int target) {
 
+        return new ArrayList<>();
     }
 
     private static class TreeNode {
