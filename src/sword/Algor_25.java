@@ -9,9 +9,9 @@ public class Algor_25 {
     public static void main(String[] args) {
 
     }
-    private static RandomListNode Clone(RandomListNode pHead){
-
-    }
+//    private static RandomListNode Clone(RandomListNode pHead){
+//
+//    }
     private static class RandomListNode {
         int label;
         RandomListNode next = null;
