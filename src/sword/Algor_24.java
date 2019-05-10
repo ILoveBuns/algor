@@ -1,6 +1,5 @@
 package sword;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,25 +10,40 @@ import java.util.HashMap;
  路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
  (注意: 在返回值的list中，数组长度大的数组靠前)
  */
+
+//通过递归获取所有路径，对符合要求的路径clone后，以路径长度为k、路径为v put进hs中
+//对hs的kset排序后，按照从大到小的顺序从hs中get出路径放到list中，返回list
 public class Algor_24 {
     public static void main(String[] args) {
-        FindPath(init(),22);
+        FindPath(init(),40);
     }
 
     private static  ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target){
         HashMap<Integer,ArrayList<Integer>> hs = new HashMap<>();
-        FindPath(root,new ArrayList<>(),hs,target);
+        FindPath1(root,new ArrayList<>(),hs,target);
 
         //对hs按照key从大到小排序至list中，返回
+        ArrayList<Integer> tep = new ArrayList<>();
+        tep.addAll(hs.keySet());
+        int[] sizeArr = new int[tep.size()];
+        for (int i = 0; i < tep.size(); i++) {
+            sizeArr[i] = tep.get(i);
+        }
 
+        Arrays.sort(sizeArr);
+        ArrayList<ArrayList<Integer>> out = new ArrayList<>();
+        for (int i = sizeArr.length-1; i >= 0 ; i--) {
+            out.add(hs.get(sizeArr[i]));
+            System.out.println(hs.get(sizeArr[i]));
+        }
+        return out;
     }
-    private static void FindPath(TreeNode root, ArrayList<Integer> list,HashMap<Integer,ArrayList<Integer>> hs,int target) {
+    private static void FindPath1(TreeNode root, ArrayList<Integer> list,HashMap<Integer,ArrayList<Integer>> hs,int target) {
         if (root == null){
             return;
         }
         list.add(root.val);
         if(root.left == null && root.right == null){
-            System.out.println(Arrays.toString(list.toArray()));
             if(equal(list,target)){
                 // 如果list满足要求，将该路径放到map中
                 hs.put(list.size(),(ArrayList<Integer>)list.clone());
@@ -37,8 +51,8 @@ public class Algor_24 {
             list.remove(list.size()-1);
             return;
         }
-        FindPath(root.left,list,hs,target);
-        FindPath(root.right,list,hs,target);
+        FindPath1(root.left,list,hs,target);
+        FindPath1(root.right,list,hs,target);
         list.remove(list.size()-1);
     }
 
