@@ -3,6 +3,7 @@ package sword;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  *
@@ -12,21 +13,32 @@ import java.util.Arrays;
  */
 public class Algor_24 {
     public static void main(String[] args) {
-        FindPath(init(),new ArrayList<>())
+        FindPath(init(),22);
     }
 
-    private static void FindPath(TreeNode root, ArrayList<Integer> list) {
+    private static  ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target){
+        HashMap<Integer,ArrayList<Integer>> hs = new HashMap<>();
+        FindPath(root,new ArrayList<>(),hs,target);
+
+        //对hs按照key从大到小排序至list中，返回
+
+    }
+    private static void FindPath(TreeNode root, ArrayList<Integer> list,HashMap<Integer,ArrayList<Integer>> hs,int target) {
         if (root == null){
             return;
         }
         list.add(root.val);
         if(root.left == null && root.right == null){
             System.out.println(Arrays.toString(list.toArray()));
+            if(equal(list,target)){
+                // 如果list满足要求，将该路径放到map中
+                hs.put(list.size(),(ArrayList<Integer>)list.clone());
+            }
             list.remove(list.size()-1);
             return;
         }
-        FindPath(root.left,list);
-        FindPath(root.right,list);
+        FindPath(root.left,list,hs,target);
+        FindPath(root.right,list,hs,target);
         list.remove(list.size()-1);
     }
 
