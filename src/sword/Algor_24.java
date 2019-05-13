@@ -16,31 +16,31 @@ public class Algor_24 {
     private static  ArrayList<Integer> path = new ArrayList<>();
 
     public static void main(String[] args) {
-        FindPath2(init(),8);
+        ArrayList<ArrayList<Integer>> out = FindPath(init(),8);
 
-        Collections.sort(allPath, new Comparator<ArrayList<Integer>>() {
+        Collections.sort(out, new Comparator<ArrayList<Integer>>() {
             @Override
             public int compare(ArrayList<Integer> o1, ArrayList<Integer> o2) {
                 return o2.size() - o1.size();
             }
         });
-        System.out.println(allPath);
+        System.out.println(out);
     }
 
-    public static ArrayList<ArrayList<Integer>> FindPath2(TreeNode root,int target) {
+    private static ArrayList<ArrayList<Integer>> FindPath(TreeNode root,int target) {
         if(root == null) return allPath;
         path.add(root.val);
         target -= root.val;
         if(target == 0 && root.left == null && root.right == null)
-            allPath.add(new ArrayList<Integer>(path));
-        FindPath2(root.left, target);
-        FindPath2(root.right, target);
+            allPath.add(new ArrayList<>(path));
+        FindPath(root.left, target);
+        FindPath(root.right, target);
         path.remove(path.size()-1);
         return allPath;
     }
 
     private static class TreeNode {
-        int val = 0;
+        int val ;
         TreeNode left = null;
         TreeNode right = null;
 
