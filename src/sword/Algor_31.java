@@ -7,11 +7,47 @@ package sword;
  * 可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
  */
 public class Algor_31 {
+//    private static int sum = 0;
     public static void main(String[] args) {
-        int sum = NumberOf1Between1AndN_Solution(999999999);
+        int sum = NumberOf1Between1AndN_Solution1(791);
         System.out.println(sum);
     }
+
     private static int NumberOf1Between1AndN_Solution(int n) {
+        int sum = 0;
+        sum = tra(n);
+        return sum;
+    }
+
+    private static int tra(int n){
+        if(n/10 == 0){
+            if(n==0){
+                return 0;
+            }
+            return 1;
+        }
+
+        //分解，比如把791分解成700+91
+        int a = nPower(dig(n))*;
+
+    }
+
+    //返回整数的位数
+    private static int dig(int n){
+        return Integer.toString(n).length();
+    }
+    //获取10的n次方
+    private static int nPower(int num){
+        return (int)(Math.pow(10,num-1));
+    }
+    //获取一个整数的最高位
+    private static int getMaxDig(int n){
+        return Integer.toString(n).charAt(0);
+    }
+
+
+
+    private static int NumberOf1Between1AndN_Solution1(int n) {
         int sum = 0;
         for (int i = 0; i < n+1; i++) {
             sum = sum + cal(Integer.toString(i));
