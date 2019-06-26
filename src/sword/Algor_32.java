@@ -9,7 +9,7 @@ public class Algor_32 {
     public static void main(String[] args) {
 
     }
-    public String PrintMinNumber(int [] numbers) {
-
-    }
+//    public String PrintMinNumber(int [] numbers) {
+//
+//    }
 }
