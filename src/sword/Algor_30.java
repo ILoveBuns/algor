@@ -10,12 +10,32 @@ package sword;
  * 给一个数组，返回它的最大连续子序列的和，
  * 你会不会被他忽悠住？(子向量的长度至少是1)
  */
+
 public class Algor_30 {
     public static void main(String[] args) {
-
+        int out = FindGreatestSumOfSubArray(new int[]{6,-3,-2,7,-15,1,2,2});
+        System.out.println(out);
     }
 
-    public int FindGreatestSumOfSubArray(int[] array) {
+    //clone一个数组，该数组从第二个位置开始存储到它那个位置为止的所有最大子序列
+    //则之后每个位置，只需要比较他的当前值和前一个位置的和，取最大值即可
+    //最后遍历clone数组，取的最大值即为最大连续子序列的和
+    private static int FindGreatestSumOfSubArray(int[] array) {
+        if(array.length == 1){
+            return array[0];
+        }
+        int[] clone = array.clone();
+        for (int i = 1; i < array.length; i++) {
+            clone[i] = clone[i]>(clone[i]+clone[i-1])?clone[i]:(clone[i]+clone[i-1]);
+        }
 
+        //获取clone的最大值
+        int max = Integer.MIN_VALUE;
+        for (int v : clone) {
+            if(max < v){
+                max = v;
+            }
+        }
+        return max;
     }
 }
