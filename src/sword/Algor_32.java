@@ -8,6 +8,8 @@ import java.util.HashSet;
  * 打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，
  * 则打印出这三个数字能排成的最小数字为321323。
  */
+
+// 以此交换数组，所有能够组成不同数的数组都保存下来，最后遍历set找出最小的数
 public class Algor_32 {
     private static HashSet<MyArr> hashSet = new HashSet();
     private static ArrayList<MyArr> queue = new ArrayList<>();
