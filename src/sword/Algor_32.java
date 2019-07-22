@@ -13,7 +13,7 @@ public class Algor_32 {
     private static ArrayList<MyArr> queue = new ArrayList<>();
 
     public static void main(String[] args) {
-        String str = PrintMinNumber(new int[]{3,32,321});
+        String str = PrintMinNumber(new int[]{3334,3,3333332});
         System.out.println(str);
     }
 
@@ -38,13 +38,13 @@ public class Algor_32 {
             }
         }
 
-        int min = Integer.MAX_VALUE;
+        Long min = Long.MAX_VALUE;
         for (MyArr myArr: hashSet) {
             if (min > getInt(myArr.arr)){
                 min = getInt(myArr.arr);
             }
         }
-        return Integer.toString(min);
+        return Long.toString(min);
     }
 
     private static int[] swap(int[] arr,int i,int j){
@@ -54,12 +54,12 @@ public class Algor_32 {
         clone[i] = tep;
         return clone;
     }
-    private static Integer getInt(int[] strs){
+    private static Long getInt(int[] strs){
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < strs.length; i++) {
             sb.append(strs[i]);
         }
-        return Integer.valueOf(sb.toString());
+        return Long.valueOf(sb.toString());
     }
 
     private static class MyArr{
@@ -69,7 +69,7 @@ public class Algor_32 {
         }
         @Override
         public int hashCode(){
-            return getInt(arr);
+            return 1;
         }
         @Override
         public boolean equals(Object o){
