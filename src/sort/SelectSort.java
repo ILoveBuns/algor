@@ -1,6 +1,6 @@
 package sort;
 
-public class SwitchSort {
+public class SelectSort {
     public static void main(String[] args) {
         int[] arr = new int[100000];
         for (int i = 0; i < arr.length; i++) {
@@ -12,7 +12,7 @@ public class SwitchSort {
         //check
         for (int a = 0; a < sortArr.length-1; a++) {
             if (sortArr[a] > sortArr[a+1]){
-                System.out.println("排序错误");
+                System.out.println("sort error");
                 return;
             }
         }
