@@ -8,6 +8,6 @@ public class Algor_11 {
 
     }
     private static int NumberOf1(int n) {
-
+        return 0;
     }
 }
