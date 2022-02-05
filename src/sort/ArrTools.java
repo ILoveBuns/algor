@@ -5,7 +5,7 @@ public class ArrTools {
     public static int[] generateArrN(int length) {
         int[] arr = new int[length];
         for (int i = 0; i < length; i++) {
-            arr[i] = (int)(Math.random()*1000000000);
+            arr[i] = (int)(Math.random()*1000);
         }
         return arr;
     }
