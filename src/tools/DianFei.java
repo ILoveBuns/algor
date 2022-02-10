@@ -2,11 +2,11 @@ package tools;
 
 public class DianFei {
     //上月用电示数
-    private static float[] preUse = new float[]{3343.1f,3420.0f,3050.1f};
+    private static float[] preUse = new float[]{4721.8f,4478.0f,4412.3f};
     //本月用电示数
-    private static float[] nowUse = new float[]{3729.9f,3715.1f,3315.1f};
+    private static float[] nowUse = new float[]{4878.7f,4623.8f,4537.3f};
     //所有电费
-    private static float allMoney = 383.39f;
+    private static float allMoney = 271.62f;
 
 
     //本月实际用电
@@ -17,7 +17,7 @@ public class DianFei {
     private static float needCalcMoney = allMoney - shareMoney[0] - shareMoney[1] - shareMoney[2];
 
     public static void main(String[] args) {
-        System.out.println("7月电费：");
+        System.out.println("1月电费：");
         //共用电度数
         float allUseDegree = 0;
         float[] everyUseDegree = new float[3];
