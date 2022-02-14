@@ -41,15 +41,6 @@ public class LinkDemo {
         return sb.toString();
     }
 
-    static class LinkNode{
-        int value;
-        LinkNode next;
-        LinkNode(int value,LinkNode next){
-            this.value = value;
-            this.next = next;
-        }
-    }
-
 //
 //    import java.util.*;
 //
