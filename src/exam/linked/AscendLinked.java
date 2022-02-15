@@ -13,40 +13,47 @@ public class AscendLinked {
 
         System.out.println(Arrays.toString(arr[0].toArray()));
         System.out.println(Arrays.toString(arr[1].toArray()));
-        LinkedList<Integer> list = merge2LinkedList(arr);
+        LinkedList<Integer> list = merge2LinkedList(arr[0],arr[1]);
         System.out.println(Arrays.toString(list.toArray()));
     }
 
     //合并K个有序数组
-    static LinkedList<Integer> mergeLinkedList(LinkedList<Integer>[] arr){
+    static LinkedList<Integer> divide(LinkedList<Integer>[] arr,int left,int right){
+        if (left == right){
+            return arr[left];
+        }
+        int mid = (left + right) / 2;
+        divide(arr,left,mid);
+        divide(arr,mid+1,right);
+
         return null;
     }
 
 
     //合并2个有序数组
-    static LinkedList<Integer> merge2LinkedList(LinkedList<Integer>[] arr){
+    static LinkedList<Integer> merge2LinkedList(LinkedList<Integer> list1,LinkedList<Integer> list2){
         LinkedList<Integer> out = new LinkedList<>();
         int firstP = 0;
         int secondP = 0;
         while (true){
-            if (firstP >= arr[0].size()){
-                while (secondP<arr[1].size()){
-                    out.add(arr[1].get(secondP));
+            if (firstP >= list1.size()){
+                while (secondP<list2.size()){
+                    out.add(list2.get(secondP));
                     secondP++;
                 }
             }
-            if (secondP >= arr[1].size()){
-                while (firstP<arr[0].size()){
-                    out.add(arr[0].get(firstP));
+            if (secondP >= list2.size()){
+                while (firstP<list1.size()){
+                    out.add(list1.get(firstP));
                     firstP++;
                 }
             }
-            if (firstP >= arr[0].size() && secondP >= arr[1].size()){
+            if (firstP >= list1.size() && secondP >= list2.size()){
                 return out;
             }
 
-            int firstValue = arr[0].get(firstP);
-            int secondValue = arr[1].get(secondP);
+            int firstValue = list1.get(firstP);
+            int secondValue = list2.get(secondP);
             if (firstValue <= secondValue){
                 out.add(firstValue);
                 firstP++;
