@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = ArrTools.generateArrN((int) (Math.random() * 5));
+        int[] arr = ArrTools.generateArrN((int) (Math.random() * 50));
         System.out.println("排序前：" + Arrays.toString(arr));
 
-        pubSort(arr);
+        begMergeSort(arr);
         System.out.println("排序后：" + Arrays.toString(arr));
         System.out.println("是否递增：" + ArrTools.isIncrement(arr));
     }
@@ -116,5 +116,50 @@ public class Main {
                 System.out.println(Arrays.toString(arr));
             }
         }
+    }
+
+    static void begMergeSort(int arr[]){
+        int[] arrTep= new int[arr.length];
+        mergeSort(arr,0,arr.length-1,arrTep);
+    }
+
+    static void mergeSort(int arr[],int left,int right,int arrTep[]){
+        if (left<right){
+            int mid = (left+right)/2;
+            mergeSort(arr,left,mid,arrTep);
+            mergeSort(arr,mid+1,right,arrTep);
+            merge(arr,left,mid,right,arrTep);
+        }
+    }
+
+    static void merge(int arr[],int left,int mid,int right,int arrTep[]){
+        //将两个有序数组合并
+        int tepPoi = left;
+        int first = left;
+        int second = mid+1;
+        while (first<=mid && second<=right){
+            if (arr[first]<=arr[second]){
+                arrTep[tepPoi] = arr[first];
+                first++;
+            }else{
+                arrTep[tepPoi] = arr[second];
+                second++;
+            }
+            tepPoi++;
+        }
+        while (first<=mid){
+            arrTep[tepPoi]=arr[first];
+            first++;
+            tepPoi++;
+        }
+        while (second<=right){
+            arrTep[tepPoi] = arr[second];
+            tepPoi++;
+            second++;
+        }
+        for (int i = left; i <=right ; i++) {
+            arr[i]=arrTep[i];
+        }
+
     }
 }
