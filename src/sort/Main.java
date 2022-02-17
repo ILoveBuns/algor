@@ -76,6 +76,10 @@ public class Main {
             }
             arr[j+1] = tep;
         }
+    }
+
+    static void shellSort(int arr){
+
 
     }
 }
