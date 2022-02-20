@@ -7,7 +7,7 @@ public class Main {
         int[] arr = ArrTools.generateArrN((int) (Math.random() * 50));
         System.out.println("排序前：" + Arrays.toString(arr));
 
-        begMergeSort(arr);
+        heepSort(arr);
         System.out.println("排序后：" + Arrays.toString(arr));
         System.out.println("是否递增：" + ArrTools.isIncrement(arr));
     }
@@ -161,5 +161,45 @@ public class Main {
             arr[i]=arrTep[i];
         }
 
+    }
+
+    static void heepSort(int arr[]){
+        //首先将一个数组从0到length-1位置的数据调整为一个大顶堆
+        for (int i = arr.length/2-1; i >= 0 ; i--) {
+            adjustToHeap(arr,i,arr.length-1);
+        }
+        //将0和当前的length-1的位置的数据调换，再重新调整0到length-1-1的位置为一个大顶堆
+        //总共需要交换length-1
+        for (int j = 0; j < arr.length-1; j++) {
+            swap(arr,0,arr.length-1-j);
+            adjustToHeap(arr,0,arr.length-2-j);
+        }
+
+    }
+
+    //从root节点往下调整整个数组为一个大顶堆
+    static void adjustToHeap(int arr[],int root,int maxInx){
+        //这里的root*2+1一定是左节点，如果发生了交换，则root节点会变为子树的根节点，则i需要从新的root的左子树重新开始调整
+        for (int i = root * 2 +1; i <= maxInx ; i = 2*root + 1) {
+            //i+1为右节点，且右节点更大
+            if (i+1 <= maxInx && arr[i]<arr[i+1]){
+                i++;
+            }
+            if (arr[root]<arr[i]){
+                //交换
+                swap(arr,root,i);
+                root = i;
+            }else {
+                //说明此时root节点最大，不用动，则子树也不用调整
+                break;
+            }
+
+        }
+    }
+
+    static void swap(int arr[],int a,int b){
+        int tep = arr[b];
+        arr [b] = arr[a];
+        arr[a] = tep;
     }
 }
