@@ -8,35 +8,36 @@ import java.util.*;
  */
 public class BFS {
     public static void main(String[] args) {
-        HashMap<String,LinkedList<String>> map = GraphTools.generateGraph();
+        HashMap<String,LinkedList<GraphNode>> map = GraphTools.generateGraph();
         BFS(map);
     }
 
-    static void BFS(HashMap<String,LinkedList<String>> map){
+    static void BFS(HashMap<String,LinkedList<GraphNode>> map){
         //去重，防止同一个节点被2各父节点都指向
         HashSet<String> hashSet = new HashSet<>(map.size());
 
-        String begin = "A,0";
-        Queue<String> queue = new ArrayDeque<>();
+        GraphNode begin = new GraphNode("A",0);
+        Queue<GraphNode> queue = new ArrayDeque<>();
         queue.add(begin);
-        hashSet.add("A");
+        hashSet.add(begin.value);
 
         while (!queue.isEmpty()){
-            String element = queue.poll();
-            System.out.println(element);
+            GraphNode element = queue.poll();
+            System.out.println(element.value+","+element.level);
 
-            String[] elementArr = element.split(",");
-            int level = Integer.parseInt(elementArr[1]);
-            level++;
-            List<String> list = map.get(elementArr[0]);
+//            String[] elementArr = element.split(",");
+//            int level = Integer.parseInt(elementArr[1]);
+//            level++;
+            List<GraphNode> list = map.get(element.value);
 
-            for (String node:list) {
+            for (GraphNode node:list) {
                 //说明已经遍历过了
-                if (hashSet.contains(node)){
+                if (hashSet.contains(node.value)){
                     continue;
                 }
-                hashSet.add(node);
-                queue.add(node+","+level);
+                hashSet.add(node.value);
+                node.level = element.level+1;
+                queue.add(node);
             }
         }
     }
