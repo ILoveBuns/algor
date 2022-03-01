@@ -2,9 +2,9 @@ package tools;
 
 public class DianFei {
     //上月用电示数
-    private static float[] preUse = new float[]{4721.8f,4478.0f,4412.3f};
+    private static float[] preUse = new float[]{4878.7f,4623.8f,4537.3f};
     //本月用电示数
-    private static float[] nowUse = new float[]{4878.7f,4623.8f,4537.3f};
+    private static float[] nowUse = new float[]{5010.8f,4738.5f,4664.5f};
     //所有电费
     private static float allMoney = 271.62f;
 
